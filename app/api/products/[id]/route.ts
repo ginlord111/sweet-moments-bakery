@@ -1,0 +1,23 @@
+import { NextRequest, NextResponse } from "next/server";
+import { storage } from "../../../../server/storage";
+
+// GET /api/products/:id - Get single product
+export async function GET(
+  _req: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
+) {
+  try {
+    const { id } = await params;
+    const product = await storage.getProduct(id);
+    if (!product) {
+      return NextResponse.json({ error: "Product not found" }, { status: 404 });
+    }
+    return NextResponse.json(product);
+  } catch (error) {
+    console.error("Failed to fetch product:", error);
+    return NextResponse.json(
+      { error: "Failed to fetch product" },
+      { status: 500 }
+    );
+  }
+}
