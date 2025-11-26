@@ -16,7 +16,7 @@ export function Header({ cartItemCount, onCartClick }: HeaderProps) {
             <h1 className="font-serif text-2xl font-bold text-primary">
               Sweet Moments
             </h1>
-            <nav className="hidden md:flex items-center gap-6">
+            {/* <nav className="hidden md:flex items-center gap-6">
               <a href="#shop" className="text-sm font-medium hover-elevate active-elevate-2 px-3 py-2 rounded-md transition-colors">
                 Shop
               </a>
@@ -26,7 +26,7 @@ export function Header({ cartItemCount, onCartClick }: HeaderProps) {
               <a href="#contact" className="text-sm font-medium hover-elevate active-elevate-2 px-3 py-2 rounded-md transition-colors">
                 Contact
               </a>
-            </nav>
+            </nav> */}
           </div>
 
           <Button
