@@ -1,10 +1,10 @@
-import { 
-  type Product, 
+import {
+  type Product,
   type InsertProduct,
   type CartItem,
   type InsertCartItem,
   type Order,
-  type InsertOrder
+  type InsertOrder,
 } from "@shared/schema";
 import { randomUUID } from "crypto";
 
@@ -43,7 +43,8 @@ export class MemStorage implements IStorage {
     const initialProducts: InsertProduct[] = [
       {
         name: "Classic Croissant",
-        description: "Buttery, flaky French croissant baked to golden perfection",
+        description:
+          "Buttery, flaky French croissant baked to golden perfection",
         price: "3.50",
         category: "Pastries",
         image: "/images/golden_flaky_croissant_product.png",
@@ -137,10 +138,13 @@ export class MemStorage implements IStorage {
     return cartItem;
   }
 
-  async updateCartItem(id: string, quantity: number): Promise<CartItem | undefined> {
+  async updateCartItem(
+    id: string,
+    quantity: number
+  ): Promise<CartItem | undefined> {
     const cartItem = this.cartItems.get(id);
     if (!cartItem) return undefined;
-    
+
     const updated = { ...cartItem, quantity };
     this.cartItems.set(id, updated);
     return updated;
@@ -167,4 +171,13 @@ export class MemStorage implements IStorage {
   }
 }
 
-export const storage = new MemStorage();
+// Use global singleton pattern for serverless environments
+declare global {
+  // eslint-disable-next-line no-var
+  var __storage: MemStorage | undefined;
+}
+
+// In serverless environments, use global to persist across function invocations
+// In development, this will be reset on each module reload
+export const storage =
+  globalThis.__storage ?? (globalThis.__storage = new MemStorage());

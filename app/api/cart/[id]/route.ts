@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { storage } from "../../../../server/storage";
+import { storage } from "@server/storage";
 
 // PATCH /api/cart/:id - Update cart item quantity
 export async function PATCH(

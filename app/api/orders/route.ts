@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { storage } from "../../../server/storage";
-import { insertOrderSchema } from "../../../shared/schema";
+import { storage } from "@server/storage";
+import { insertOrderSchema } from "@shared/schema";
 import { z } from "zod";
 
 // POST /api/orders - Create order (checkout)

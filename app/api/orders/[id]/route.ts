@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { storage } from "../../../../server/storage";
+import { storage } from "@server/storage";
 
 // GET /api/orders/:id - Get order by ID
 export async function GET(

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { storage } from "../../../server/storage";
-import { insertCartItemSchema } from "../../../shared/schema";
+import { storage } from "@server/storage";
+import { insertCartItemSchema } from "@shared/schema";
 import { z } from "zod";
 
 // GET /api/cart - Get all cart items
