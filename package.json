@@ -5,8 +5,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "build:vercel": "next build",
+    "build": "vite build && next build",
+    "build:vercel": "vite build && next build",
     "start": "next start",
     "check": "tsc",
     "db:push": "drizzle-kit push"
