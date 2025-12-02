@@ -4,7 +4,7 @@
   "type": "module",
   "license": "MIT",
   "scripts": {
-    "dev": "next dev",
+    "dev": "tsx server/index-dev.ts",
     "build": "vite build && next build",
     "build:vercel": "vite build && next build",
     "start": "next start",
@@ -57,6 +57,7 @@
     "input-otp": "^1.4.2",
     "lucide-react": "^0.453.0",
     "memorystore": "^1.6.7",
+    "nanoid": "^5.0.0",
     "next": "^15.0.0",
     "next-themes": "^0.4.6",
     "passport": "^0.7.0",

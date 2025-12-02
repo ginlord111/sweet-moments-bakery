@@ -34,6 +34,7 @@ export async function POST(req: NextRequest) {
 
     // Check if product exists
     const product = await storage.getProduct(data.productId);
+    console.log("🚀 ~ POST ~ product:", product);
     if (!product) {
       return NextResponse.json({ error: "Product not found" }, { status: 404 });
     }
